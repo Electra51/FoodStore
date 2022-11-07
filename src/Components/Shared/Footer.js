@@ -106,10 +106,11 @@ const Footer = () => {
                 </Link>
               </div>
             </div>
-          </div>
+                </div>
+                
         </div>
-        <div className='py-3 text-sm text-center text-gray-300'>
-          Copyright@2022QuiZone | All rights reserved.
+        <div className='py-3 text-sm text-center text-gray-900'>
+          Copyright@2022PickFood | All rights reserved.
         </div>
       </footer>
     );
