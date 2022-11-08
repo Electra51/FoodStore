@@ -4,6 +4,8 @@ import CommentForm from "../../Pages/CommentForm/CommentForm";
 import Home from "../../Pages/Home/Home";
 import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
 import Servicess from "../../Pages/Servicess/Servicess";
+import Login from "../../Shared/Login";
+import SignUp from "../../Shared/SignUp";
 
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -33,6 +35,14 @@ export const router = createBrowserRouter([
       {
         path: '/commentForm',
         element:<CommentForm></CommentForm>
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
+      },
+      {
+        path: '/signup',
+        element:<SignUp></SignUp>
       },
       {
         path: '/blogs',
