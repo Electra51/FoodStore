@@ -1,5 +1,6 @@
 import Main from "../../Layouts/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
+import CommentForm from "../../Pages/CommentForm/CommentForm";
 import Home from "../../Pages/Home/Home";
 import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
 import Servicess from "../../Pages/Servicess/Servicess";
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         element: <ServiceDetail></ServiceDetail>,
         loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
        
+      },
+      {
+        path: '/commentForm',
+        element:<CommentForm></CommentForm>
       },
       {
         path: '/blogs',

@@ -2,6 +2,7 @@ import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { BsFillChatFill } from 'react-icons/bs';
 import logo2 from '../../../Assets/logo/logo2.png'
+import { Link } from 'react-router-dom';
 
 const Review = () => {
     return (
@@ -22,7 +23,8 @@ const Review = () => {
                 </div>
                 <div className='flex items-center'>
                     <BsFillChatFill></BsFillChatFill>
-                    <p className='font-bold pl-2'>Add Comment</p>
+                    <Link to='/commentForm' className="link link-accent font-bold pl-2">Add a Comment</Link>
+                    
                 </div>
             </div>
             <hr />
