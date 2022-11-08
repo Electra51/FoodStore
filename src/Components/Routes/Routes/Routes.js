@@ -1,6 +1,7 @@
 import Main from "../../Layouts/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home";
+import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
 import Servicess from "../../Pages/Servicess/Servicess";
 
 
@@ -21,6 +22,12 @@ export const router = createBrowserRouter([
         loader: async () => {
           return fetch('http://localhost:5000/services')
         }
+      },
+      {
+        path: '/services/:id',
+        element: <ServiceDetail></ServiceDetail>,
+        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+       
       },
       {
         path: '/blogs',
