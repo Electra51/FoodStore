@@ -4,13 +4,16 @@ import Offer from './Offer';
 import Services from './Services';
 import Stat from './Stat';
 
+
+
+
 const Home = () => {
     return (
         <div>
             <Header></Header>
             <Offer></Offer>
             <Services></Services>
-            <Stat></Stat>
+           <Stat></Stat>
         </div>
     );
 };

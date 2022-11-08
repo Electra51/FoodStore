@@ -1,9 +1,9 @@
 import React from 'react';
-import img from '../../../Assets/Images/2.png'
-import img1 from '../../../Assets/Images/3.PNG'
-import img2 from '../../../Assets/Images/4.PNG'
-import img3 from '../../../Assets/Images/5.PNG'
-import img4 from '../../../Assets/Images/6.PNG'
+import img from '../../../src/assets/Images/2.png'
+import img1 from '../../../src/assets/Images/3.PNG'
+import img2 from '../../../src/assets/Images/4.PNG'
+import img3 from '../../../src/assets/Images/5.PNG'
+import img4 from '../../../src/assets/Images/6.PNG'
 const Blogs = () => {
     return (
         <div>

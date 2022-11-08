@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CommentForm = () => {
+    // const { user } = useContext();
     return (
         <div>
             <form >

@@ -1,8 +1,8 @@
 import React from 'react';
-import logo1 from '../../../Assets/offerlogo/logo3.png'
-import logo2 from '../../../Assets/offerlogo/clock.png'
-import logo3 from '../../../Assets/offerlogo/secuirity.png'
-import logo4 from '../../../Assets/offerlogo/logo4.png'
+import logo1 from '../../../src/assets/offerlogo/logo3.png'
+import logo2 from '../../../src/assets/offerlogo/clock.png'
+import logo3 from '../../../src/assets/offerlogo/secuirity.png'
+import logo4 from '../../../src/assets/offerlogo/logo4.png'
 
 const Offer = () => {
     return (

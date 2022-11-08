@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { BsFillChatFill } from 'react-icons/bs';
-import logo2 from '../../../Assets/logo/logo2.png'
+import logo2 from '../../../src/assets/logo/logo2.png'
 import { Link } from 'react-router-dom';
 
 const Review = () => {
