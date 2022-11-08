@@ -5,15 +5,15 @@ const Stat = () => {
         <div>
             <div className='text-center mt-20'>
 
-<p className="text-2xl font-bold">We Are Professional at Our Skills</p>
+<p className="text-2xl font-bold">I am Professional at My Skills</p>
 
 <p className='mb-10'>
-More than 2000+ customers trusted us
+More than 2000+ customers trusted me
  
 </p>
             </div> 
             <div>
-            <div className="stats shadow grid grid-cols-1 gap-5 lg:grid-cols-4 md:grid-cols-2 items-center  rounded-lg my-8 bg-gray-800">
+            <div className="stats shadow grid grid-cols-1 gap-5 lg:grid-cols-4 md:grid-cols-2 items-center  rounded-lg my-8 text-gray-900 border-separate">
   
   <div className="stat place-items-center">
     <div className="stat-title">Experience</div>
