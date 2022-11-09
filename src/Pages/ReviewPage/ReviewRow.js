@@ -40,7 +40,7 @@ const ReviewRow = ({ review, handleDelete }) => {
 
             </td>
             <td>
-                <Link to ={`/services/${_id}/commentForm`}><button className="btn btn-sm btn-outline">Edit</button></Link>
+                <Link to ={`/reviews/${_id}/update`}><button className="btn btn-sm btn-outline">Edit</button></Link>
                 </td>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-warning">Delete</button>

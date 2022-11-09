@@ -17,6 +17,7 @@ import Blogs from "../../Pages/Blogs/Blogs";
 import Login from "../../Shared/Login"
 import ReviewPage from "../../Pages/ReviewPage/ReviewPage";
 import AddServices from "../../Pages/AddServices/AddServices";
+import Update from "../../Pages/Update/Update";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -61,12 +62,20 @@ export const router = createBrowserRouter([
       },
       {
         path: '/addServices',
-        element:<AddServices></AddServices>
+        element: <AddServices></AddServices>,
+        loader: async () => {
+          return fetch('http://localhost:5000/services')
+        }
       },
       
       {
         path: '/signup',
         element:<SignUp></SignUp>
+      },
+      {
+        path: '/reviews/:id/update',
+        element: <Update></Update>,
+        loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
       },
       {
         path: '/blogs',
