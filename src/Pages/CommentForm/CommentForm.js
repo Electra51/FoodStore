@@ -1,14 +1,65 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const CommentForm = () => {
-    // const { user } = useContext();
+    const {_id, name,price } = useLoaderData();
+  
+    const { user } = useContext(AuthContext);
+
+    const handleAddReview = event => {
+        event.preventDefault();
+        const form = event.target;
+        const title = `${form.title.value}`;
+        const email = user?.email || 'unregistered';
+        const message = form.message.value;
+
+        const review = {
+            service: _id,
+            serviceName: name,
+            price,
+            customer: title,
+            email,
+            message
+        }
+
+
+        // if(message.length > 10){
+        //     alert('you should be 10 characters or longer')
+        // }
+        // else{
+
+        // }
+
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+               
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged){
+                    alert('Add review successfully')
+                    form.reset();
+                    
+                }})
+            .catch(er => console.error(er));
+
+    }
     return (
         <div>
-            <form >
-                <h2 className="text-4xl font-bold text-center mt-5">WRITE A COMMENT</h2>
+            <form onSubmit={handleAddReview}>
+                <h2 className="text-4xl font-bold text-center mt-5">WRITE A COMMENT
+                <br />  For {name} item</h2>
+                
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 my-6'>
-                    <input name="Name" type="text" placeholder="Name" className="input input-ghost w-full  input-bordered" />
-                    <input name="email" type="text" placeholder="Your email" className="input input-ghost w-full  input-bordered" readOnly />
+                    <input name="title" type="text" placeholder="your tittle" className="input input-ghost w-full  input-bordered" />
+                    <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
 

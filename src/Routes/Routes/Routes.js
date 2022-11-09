@@ -45,8 +45,9 @@ export const router = createBrowserRouter([
        
       },
       {
-        path: '/commentForm',
-        element:<CommentForm></CommentForm>
+        path: '/services/:id/commentForm',
+        element: <CommentForm></CommentForm>,
+        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
       },
       {
         path: '/login',
