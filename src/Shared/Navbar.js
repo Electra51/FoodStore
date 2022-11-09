@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../src/assets/logo/logo.png'
+import { AuthContext } from '../contexts/AuthProvider';
 
 
 
@@ -8,11 +9,19 @@ import logo from '../../src/assets/logo/logo.png'
 
 
 const Navbar = () => {
-
+  const { user } = useContext(AuthContext);
 
   const menuItem = <>
     <Link to='/home' className='pl-4'> Home</Link>
     <Link to='/blogs' className='pl-4'>Blog</Link>
+    { 
+              user?.email ? <>
+        <div><Link to='/reviews' className='pl-4'>My Reviews</Link>
+        <Link to='/addServices' className='pl-4'>Add Services</Link></div>
+              </>
+                :
+              <Link to='/login' className="btn">Log In</Link>
+    }
        
     </>
 
@@ -42,7 +51,16 @@ const Navbar = () => {
         </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/login' className="btn">Log In</Link>
+            
+  { 
+              user?.email ? <>
+        
+        <button className='btn btn-outline'><Link to='/logout'>Log Out</Link></button>
+              </>
+                :
+                <button className='btn btn-outline'> <Link to='/login' className="btn">Log In</Link></button>
+    }
+    
   </div>
 </div>
         </div>

@@ -15,6 +15,7 @@ import CommentForm from "../../../src/Pages/CommentForm/CommentForm"
 import SignUp from "../../Shared/SignUp";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Login from "../../Shared/Login"
+import ReviewPage from "../../Pages/ReviewPage/ReviewPage";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: '/login',
         element:<Login></Login>
+      },
+      {
+        path: '/reviews',
+        element:<ReviewPage></ReviewPage>
       },
       {
         path: '/signup',
