@@ -58,7 +58,7 @@ const CommentForm = () => {
                 <br />  For {name} item</h2>
                 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 my-6'>
-                    <input name="title" type="text" placeholder="your tittle" className="input input-ghost w-full  input-bordered" />
+                    <input name="title" type="text" placeholder="your tittle" className="input input-ghost w-full  input-bordered"/>
                     <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>

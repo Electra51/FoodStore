@@ -16,6 +16,7 @@ import SignUp from "../../Shared/SignUp";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Login from "../../Shared/Login"
 import ReviewPage from "../../Pages/ReviewPage/ReviewPage";
+import AddServices from "../../Pages/AddServices/AddServices";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -58,6 +59,11 @@ export const router = createBrowserRouter([
         path: '/reviews',
         element:<ReviewPage></ReviewPage>
       },
+      {
+        path: '/addServices',
+        element:<AddServices></AddServices>
+      },
+      
       {
         path: '/signup',
         element:<SignUp></SignUp>

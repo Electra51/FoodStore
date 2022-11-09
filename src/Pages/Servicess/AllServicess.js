@@ -25,7 +25,8 @@ const AllServicess = ({ serviceData }) => {
                 <FaStar></FaStar>
                 <FaStar></FaStar>
                 <FaStar></FaStar>
-                    <button>5</button></div>
+                        <button>5</button></div>
+                        
                 {
                     description.length > 100 ? 
                         <p>{description.slice(0, 100) + '...'}</p>

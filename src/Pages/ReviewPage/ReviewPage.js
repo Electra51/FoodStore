@@ -9,7 +9,7 @@ const ReviewPage = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user.email}`)
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [user?.email])
@@ -34,55 +34,56 @@ const ReviewPage = () => {
                     }
                 })
             }
-        }
+    }
+    
+
+
 
     return (
         <div>
-            <h2>your reviews{reviews.length}</h2>
-
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    {/* <!-- head --> */}
-                    <thead>
-                        <tr className='pl-8'>
-                            <th>Service Name</th>
-                            <th>Reviews</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        {
-                            
-                                reviews.map(review => <ReviewRow
-                                    key={review._id}
-                                    review={review}
-                                    handleDelete={handleDelete}>
-                                    
-                                </ReviewRow>)
-                            }
-
-                    </tbody>
-
-
-
-                </table>
-            </div>
+            
+            { reviews.length === 0 ?
+              <p className='text-5xl font bold text-center text-warning my-20 bg-emerald-800 py-5'>No reviews were added</p>
+              
+                :
+               <> <h2 className='text-2xl font bold text-center text-white my-10 bg-emerald-800'>You have {reviews.length} reviews here</h2>
+               <div className="overflow-x-auto w-full">
+                   <table className="table w-full">
+                       {/* <!-- head --> */}
+                       <thead>
+                           <tr className='pl-8'>
+                               <th>Service Name</th>
+                               <th>Reviews</th>
+                               <th>Edit</th>
+                               <th>Delete</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+   
+                           {
+                               
+                                   reviews.map(review => <ReviewRow
+                                       key={review._id}
+                                       review={review}
+                                       handleDelete={handleDelete}
+                                       >
+                                       
+                                       
+                                   </ReviewRow>)
+                               }
+   
+                       </tbody>
+   
+   
+   
+                   </table>
+               </div></>
+    }
+            
+           
         </div>
     );
 };
 
 export default ReviewPage;
 
-// {
-//     reviews.map((review, index) => {
-//         return (
-//             <ReviewRow
-//                 key={review._id}
-//                 review={review}></ReviewRow>
-//         )
-//         // reviews.map(review => <ReviewRow
-//         //     key={review._id}
-//         //     review={review}></ReviewRow>)
-//     })}
