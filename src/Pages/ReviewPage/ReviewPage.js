@@ -26,7 +26,9 @@ const ReviewPage = () => {
                 }
                 return res.json()
             })
-            .then(data => setReviews(data))
+            .then(data => {
+                setReviews(data)
+            })
     }, [user?.email, logOut])
 
 
@@ -35,7 +37,10 @@ const ReviewPage = () => {
         const proceed = window.confirm('Are you sure to delete this?')
         if (proceed) {
             fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('pick-token')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {

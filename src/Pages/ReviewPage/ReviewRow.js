@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ReviewRow = ({ review, handleDelete }) => {
-    const {serviceName, message, price, _id, service} = review;
+    const {serviceName, message, price, _id, service,img} = review;
     const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
@@ -23,9 +23,9 @@ const ReviewRow = ({ review, handleDelete }) => {
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                            {
-                                reviewService?.img && <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />
-                            }
+                            
+                            <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />
+                            
 
                         </div>
                     </div>

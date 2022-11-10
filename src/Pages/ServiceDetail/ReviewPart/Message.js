@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Message = ({ data }) => {
     const {user}=useContext(AuthContext)
     console.log(data)
-    const { customer, email, message, service } = data;
+    const { customer, email, message } = data;
     return (
         <div>
             
@@ -18,7 +18,7 @@ const Message = ({ data }) => {
                             
                                 <div className="w-12 rounded-full">
                                     {user?.photoURL ?
-                                <img title={user.displayName} style={{ height: '35px' }}
+                                <img title={user.displayName} 
                                     roundedCircle
                                     src={user?.photoURL}>
                                 </img>
