@@ -4,7 +4,9 @@ import img1 from '../../../src/assets/Images/3.PNG'
 import img2 from '../../../src/assets/Images/4.PNG'
 import img3 from '../../../src/assets/Images/5.PNG'
 import img4 from '../../../src/assets/Images/6.PNG'
+import useTitle from '../../hook/useTitle';
 const Blogs = () => {
+    useTitle('Blogs');
     return (
         <div>
             <div>

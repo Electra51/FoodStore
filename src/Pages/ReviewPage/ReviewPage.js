@@ -1,18 +1,30 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hook/useTitle';
 import ReviewRow from './ReviewRow';
 
 const ReviewPage = () => {
-    const { user } = useContext(AuthContext)
+    useTitle('ReviewPage')
+    const { user, logOut } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
 
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization:`Bearer ${localStorage.getItem('pick-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut()
+                }
+                return res.json()
+            })
             .then(data => setReviews(data))
-    }, [user?.email])
+    }, [user?.email,logOut])
 
 
 

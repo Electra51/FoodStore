@@ -13,7 +13,7 @@ const AllServicess = ({ serviceData }) => {
                 <div className="card card-compact w-80 bg-base-100 shadow-xl">
                 <figure>
                     <PhotoView src={img}>
-                        <img src={img} alt="Shoes" />
+                        <img src={img} alt="" />
                     </PhotoView>
                 </figure>
   <div className="card-body flex-grow-0">

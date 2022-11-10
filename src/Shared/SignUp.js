@@ -2,20 +2,29 @@ import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import useTitle from '../hook/useTitle';
 
 
 const SignUp = () => {
+    useTitle('SignUp')
     const {createUser} = useContext(AuthContext);
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        form.reset();
+        // if (password.length > 6) {
+        //     setPasswordError('please should be at least 6 character');
+        //     return;
+        // }
+        // setPasswordError('');
         
         createUser(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
+            
         })
         .catch(err => console.error(err));
     }

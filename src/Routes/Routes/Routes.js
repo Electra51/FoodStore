@@ -18,6 +18,8 @@ import Login from "../../Shared/Login"
 import ReviewPage from "../../Pages/ReviewPage/ReviewPage";
 import AddServices from "../../Pages/AddServices/AddServices";
 import Update from "../../Pages/Update/Update";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -25,6 +27,7 @@ export const router = createBrowserRouter([
     {
       path:'/',
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/home',
@@ -49,7 +52,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/services/:id/commentForm',
-        element: <CommentForm></CommentForm>,
+        element: <PrivateRoute><CommentForm></CommentForm></PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
       },
       {

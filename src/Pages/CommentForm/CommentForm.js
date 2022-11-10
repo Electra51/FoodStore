@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hook/useTitle';
 
 const CommentForm = () => {
+    useTitle('CommentForm')
     const {_id, name,price } = useLoaderData();
   
     const { user } = useContext(AuthContext);

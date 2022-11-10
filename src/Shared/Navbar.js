@@ -9,19 +9,31 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+    .catch()
+  }
 
   const menuItem = <>
-    <Link to='/home' className='pl-4'> Home</Link>
-    <Link to='/blogs' className='pl-4'>Blog</Link>
     { 
-              user?.email ? <>
-        <div><Link to='/reviews' className='pl-4'>My Reviews</Link>
-        <Link to='/addServices' className='pl-4'>Add Services</Link></div>
+      user?.email ? <>
+       <li><Link to='/home' className='pl-4'>Home </Link></li> 
+       <li><Link to='/blogs' className='pl-4'>Blog</Link></li> 
+       <li><Link to='/reviews' className='pl-4'>My Reviews</Link></li> 
+       <li><Link to='/addServices' className='pl-4'>Add Services</Link></li>
+        <button onClick={handleLogOut} className='btn btn-outline'><Link to='/home'>Log Out</Link></button>
               </>
-                :
-              <Link to='/login' className="btn">Log In</Link>
+        :
+        <> 
+          <li><Link to='/home' className='pl-4'> Home</Link></li>
+        <li><Link to='/blogs' className='pl-4'>Blog</Link></li> 
+         <li> <Link to='/login' className="pl-4">Log In</Link> </li></>
     }
+    
+    
        
     </>
 
@@ -50,18 +62,7 @@ const Navbar = () => {
           {menuItem}
         </ul>
   </div>
-  <div className="navbar-end">
-            
-  { 
-              user?.email ? <>
-        
-        <button className='btn btn-outline'><Link to='/logout'>Log Out</Link></button>
-              </>
-                :
-                <button className='btn btn-outline'> <Link to='/login' className="btn">Log In</Link></button>
-    }
-    
-  </div>
+  
 </div>
         </div>
     );

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
+import useTitle from '../../hook/useTitle';
 
 
 const AddServices = () => {
+    useTitle('AddServices');
     const [recipes, setRecipes] = useState({});
     const handleAddRecipes = event => {
         event.preventDefault();
         console.log(recipes);
         
-
+        
         fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
