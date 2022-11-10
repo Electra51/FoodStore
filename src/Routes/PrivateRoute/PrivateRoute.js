@@ -5,7 +5,7 @@ import useTitle from '../../hook/useTitle';
 
 const PrivateRoute = ({ children }) => {
     useTitle('PrivateRoute')
-    const { user,loading } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     if (loading) {
         return <h1 className='text-5xl text-warning text-center'>Loading...</h1>
@@ -15,7 +15,7 @@ const PrivateRoute = ({ children }) => {
 
     }
 
-    return <Navigate to='/login' state={{from:location}} replace></Navigate>
+    return <Navigate to='/login' state={{ from: location }} replace></Navigate>
 };
 
 export default PrivateRoute;

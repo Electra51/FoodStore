@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import useTitle from '../hook/useTitle';
+import DotLoader from "react-spinners/DotLoader";
 
 
 const SignUp = () => {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        },500)
+    }, [])
     useTitle('SignUp')
     const {createUser} = useContext(AuthContext);
     const handleSignUp = event =>{
@@ -14,11 +22,7 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         form.reset();
-        // if (password.length > 6) {
-        //     setPasswordError('please should be at least 6 character');
-        //     return;
-        // }
-        // setPasswordError('');
+        
         
         createUser(email, password)
         .then(result => {
@@ -31,7 +35,13 @@ const SignUp = () => {
 
     return (
         <div className="hero w-full my-20">
-            <div className="hero-content">
+            {
+                loading ?
+                <DotLoader color={'#483bf6'} loading={loading}  size={100} 
+                    />
+                    :
+                    <>
+                    <div className="hero-content">
                 <div className="text-center lg:text-left">
                     <img className='w-3/4' src="" alt="" />
                 </div>
@@ -64,6 +74,9 @@ const SignUp = () => {
                     <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
                 </div>
             </div>
+                    </>
+            }
+            
         </div>
     );
 };

@@ -1,18 +1,29 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 import useTitle from '../hook/useTitle';
+import DotLoader from "react-spinners/DotLoader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
 
 const Login = () => {
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        },500)
+    }, [])
     useTitle('Login')
     const { login } = useContext(AuthContext);
     const { providerLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/home';
+    const from = location.state?.from?.pathname || '/services';
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -30,6 +41,10 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        toast.success('login Successfully', {
+            theme: "colored",
+        });
+        
         form.reset();
 
         login(email, password)
@@ -62,7 +77,14 @@ const Login = () => {
 
     return (
         <div className="hero w-full my-20" >
-            <div className="hero-content">
+            {
+               
+                    loading ?
+                    <DotLoader color={'#483bf6'} loading={loading}  size={100} 
+                        />
+                        :
+                        <>
+                  <div className="hero-content">
                 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
                     <h1 className="text-5xl text-center font-bold">Login</h1>
@@ -90,6 +112,11 @@ const Login = () => {
                     <p className='text-center'>As a new member? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
             </div>
+                        </>
+                        
+                }
+            
+            <ToastContainer />
         </div>
     );
 };

@@ -17,7 +17,7 @@ const ReviewPart = () => {
     return (
         <div>
             {
-                reviewData.map(data => <Message
+                reviewData && reviewData.sort((a, b) => b.message > a.message ? 1 : -1).map(data => <Message
                     key={data._id}
                 data={data}></Message>)
             }

@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useTitle from '../../hook/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const CommentForm = () => {
     useTitle('CommentForm')
@@ -26,12 +29,7 @@ const CommentForm = () => {
         }
 
 
-        // if(message.length > 10){
-        //     alert('you should be 10 characters or longer')
-        // }
-        // else{
-
-        // }
+       
 
 
         fetch('http://localhost:5000/reviews', {
@@ -46,7 +44,9 @@ const CommentForm = () => {
             .then(data => {
                 console.log(data)
                 if(data.acknowledged){
-                    alert('Add review successfully')
+                    toast.success('Add review successfully', {
+                        theme:'colored'
+                    })
                     form.reset();
                     
                 }})
@@ -67,6 +67,7 @@ const CommentForm = () => {
 
                 <input className='btn btn-warning my-7' type="submit" value="Add Your Review" />
             </form>
+            <ToastContainer/>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useTitle from '../../hook/useTitle';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddServices = () => {
     useTitle('AddServices');
@@ -21,7 +22,7 @@ const AddServices = () => {
             .then(data => {
                
                 if (data.acknowledged) {
-                    alert('added successfully')
+                    toast.success('added successfully')
                     event.target.reset();
                 }
 
@@ -82,7 +83,7 @@ const AddServices = () => {
                     
                 </div>
             </div>
-  
+  <ToastContainer/>
         </div>
      
     );
