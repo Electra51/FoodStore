@@ -105,7 +105,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
-                        <button onClick={handleGoogleSignIn} variant="primary" type="submit" className='btn btn-outline'>
+                        <button onClick={handleGoogleSignIn}  variant="primary" type="submit" className='btn btn-outline'>
         <FaGoogle/>  <span className='ml-2'>Google Log In</span>
                         </button>
                     </form>

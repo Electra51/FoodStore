@@ -13,9 +13,10 @@ const ReviewPart = () => {
         .then(data=>setReviewData(data))
     }, []);
 
-
+ 
     return (
         <div>
+           
             {
                 reviewData && reviewData.sort((a, b) => b.message > a.message ? 1 : -1).map(data => <Message
                     key={data._id}

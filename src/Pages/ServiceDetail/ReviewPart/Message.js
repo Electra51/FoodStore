@@ -1,19 +1,34 @@
-import React from 'react';
-import { FaStar } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { FaStar, FaUser } from 'react-icons/fa';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Message = ({ data }) => {
+    const {user}=useContext(AuthContext)
     console.log(data)
-    const {customer, email, message } = data;
+    const { customer, email, message, service } = data;
     return (
         <div>
+            
             <hr />
-             <div className='mt-5'>
+            <div className='mt-5'>
                 <div className='flex justify-between'>
                     <div className='flex'>
-                        
-                        <div >
-                        <p className='text-ml font-semibold'>Name: {customer}</p>
-                            <p className='text-ml font-semibold'>{email}</p>
+
+                        <div className='flex' >
+                            
+                                <div className="w-12 rounded-full">
+                                    {user?.photoURL ?
+                                <img title={user.displayName} style={{ height: '35px' }}
+                                    roundedCircle
+                                    src={user?.photoURL}>
+                                </img>
+                                : <FaUser></FaUser>}
+                                </div>
+                            
+                            <div>
+                                <p className='text-ml font-semibold pl-2'>Name: {customer}</p>
+                                <p className='text-ml font-semibold pl-2'>{email}</p>
+                            </div>
                         </div>
                     </div>
                     <div className='flex'>
@@ -25,9 +40,9 @@ const Message = ({ data }) => {
                     </div>
                 </div>
                 <div className='text-error text-ml font-semibold'>
-                  Reviews: {message}
+                    Reviews: {message}
                 </div>
-          </div>
+            </div>
         </div>
     );
 };
