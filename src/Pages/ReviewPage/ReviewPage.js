@@ -15,7 +15,7 @@ const ReviewPage = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://pick-food-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('pick-token')}`
             }
@@ -36,7 +36,7 @@ const ReviewPage = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure to delete this?')
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://pick-food-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('pick-token')}`
@@ -62,7 +62,7 @@ const ReviewPage = () => {
 
 
     return (
-        <div>
+        <div  data-aos="zoom-in-up" data-aos-duration="1500">
 
             {reviews.length === 0 ?
                 <p className='text-5xl font bold text-center text-warning my-20 bg-emerald-800 py-5'>No reviews were added</p>

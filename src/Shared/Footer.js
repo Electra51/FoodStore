@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../src/assets/logo/logo.png'
-import {FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import {FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const Footer = () => {
   
@@ -65,8 +65,8 @@ const Footer = () => {
           </div>
           <div className='space-y-3'>
             <div className='flex justify-center content-center items-center space-x-2'>
-              <FaFacebook></FaFacebook>
-              <FaTwitter></FaTwitter>
+             <a href='https://www.facebook.com/mimsa.mubassera.7'><FaFacebook></FaFacebook></a>
+              <a href='https://www.linkedin.com/in/safayet-nur/'><FaLinkedin></FaLinkedin></a>
               <FaInstagram></FaInstagram>
             </div>
           </div>

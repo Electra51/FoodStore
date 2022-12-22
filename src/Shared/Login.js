@@ -10,7 +10,9 @@ import 'react-toastify/dist/ReactToastify.css';
   
 
 const Login = () => {
+    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
@@ -46,6 +48,7 @@ const Login = () => {
         });
         
         form.reset();
+        setError('');
 
         login(email, password)
             .then(result => {
@@ -56,7 +59,7 @@ const Login = () => {
                 }
                 console.log(currentUser);
                 //get jwt token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://pick-food-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type':'application/json'
@@ -71,22 +74,26 @@ const Login = () => {
                 })
                 
             })
-        .catch(error=>console.error(error))
+            .catch(error => {
+                console.error(error)
+            setError(error.message)
+            })
     }
 
 
     return (
-        <div className="hero w-full my-20" >
+        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10" >
+            <img className='cover' src="https://media.istockphoto.com/id/519691230/photo/breakfast-on-the-cutting-board-isolated-on-white.jpg?s=612x612&w=0&k=20&c=_PU6zdkwL3Q9FPTdjdzIRvTtw2x140kLyh-zoAql47A=" alt="" data-aos="fade-right" data-aos-duration="1000"/>
             {
                
                     loading ?
-                    <DotLoader color={'#483bf6'} loading={loading}  size={100} 
+                    <DotLoader color={'#F6BE00'} loading={loading}  size={100} 
                         />
                         :
                         <>
-                  <div className="hero-content">
+                  
                 
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 py-10 mb-20" data-aos="fade-left" data-aos-duration="800">
                     <h1 className="text-5xl text-center font-bold">Login</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
@@ -103,15 +110,16 @@ const Login = () => {
                            
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
-                        </div>
+                            <input className="btn btn-warning" type="submit" value="Login" />
+                                </div>
+                                <p className='text-red-500'>{error}</p>
                         <button onClick={handleGoogleSignIn}  variant="primary" type="submit" className='btn btn-outline'>
         <FaGoogle/>  <span className='ml-2'>Google Log In</span>
                         </button>
                     </form>
-                    <p className='text-center'>As a new member? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <p className='text-center'>As a new member? <Link className='text-blue-600 font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
-            </div>
+         
                         </>
                         
                 }

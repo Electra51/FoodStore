@@ -8,17 +8,18 @@ import useTitle from '../../hook/useTitle';
 const Blogs = () => {
     useTitle('Blogs');
     return (
-        <div>
+        <div >
             <div>
 
-                <div className='text-center mt-5 '>
+                <div className='text-center my-16 ' data-aos="zoom-in-up" data-aos-duration="1500">
                     <img className='inline' src={img} alt="" width={300} />
 
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-6 mb-10'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-6 mb-20'>
                 {/* question 01 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card lg:card-side bg-base-100 shadow-xl my-16" data-aos="fade-up"
+     data-aos-duration="1000">
                     <figure><img src={img1} alt="Album" /></figure>
                     <div className="card-body flex justify-center items-start">
                         <h2 className="card-title">What are the difference between SQL and NoSQL ?</h2>
@@ -77,7 +78,8 @@ const Blogs = () => {
                     </div>
                 </div>
                 {/* question 02 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card lg:card-side bg-base-100 shadow-xl my-16" data-aos="fade-up"
+     data-aos-duration="1000">
                     <figure><img src={img2} alt="Album" /></figure>
                     <div className="card-body flex justify-center items-start">
                         <h2 className="card-title">What is JWT, and how does it work?</h2>
@@ -104,7 +106,8 @@ A JWT is a string made up of three parts, separated by dots (.), and serialized 
                     </div>
                 </div>
                 {/* question 03 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card lg:card-side bg-base-100 shadow-xl "  data-aos="fade-up"
+     data-aos-duration="1000">
                     <figure><img src={img3} alt="Album" /></figure>
                     <div className="card-body flex justify-center items-start">
                         <h2 className="card-title">What is the difference between javascript and NodeJS?</h2>
@@ -161,7 +164,8 @@ A JWT is a string made up of three parts, separated by dots (.), and serialized 
                     </div>
                 </div>
                 {/* question 04 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl">
+                <div className="card lg:card-side bg-base-100 shadow-xl"  data-aos="fade-up"
+     data-aos-duration="1000">
                     <figure><img src={img4} alt="Album" /></figure>
                     <div className="card-body flex justify-center items-start">
                         <h2 className="card-title">How does NodeJS handle multiple requests at the same time?</h2>
@@ -187,7 +191,7 @@ A JWT is a string made up of three parts, separated by dots (.), and serialized 
                     </div>
                 </div>
             </div>
-            <h1 className='text-3xl font-bold text-center my-10'>Thank you Everybody!</h1>
+            <h1 className='text-3xl font-bold text-center my-20'>Thank you Everybody!</h1>
         </div>
     );
 };

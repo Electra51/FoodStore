@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import DotLoader from "react-spinners/DotLoader";
 import useTitle from '../../hook/useTitle';
+import Gallery from './Gallery';
 import Header from './Header';
 import Offer from './Offer';
 import Services from './Services';
-import Stat from './Stat';
+
 
 
 
@@ -30,7 +31,7 @@ const Home = () => {
                         <Header></Header>
                         <Offer></Offer>
                         <Services></Services>
-                        <Stat></Stat>
+                        <Gallery></Gallery>
                     </>
 
             }

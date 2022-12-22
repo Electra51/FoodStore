@@ -1,11 +1,4 @@
-// import Main from "../../Layouts/Main";
-// import Blogs from "../../Pages/Blogs/Blogs";
-// import CommentForm from "../../Pages/CommentForm/CommentForm";
-// import Home from "../../Pages/Home/Home";
-// import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
-// import Servicess from "../../Pages/Servicess/Servicess";
-// import Login from "../../Shared/Login";
-// import SignUp from "../../Shared/SignUp";
+
 
 import Main from "../../Layouts/Main";
 import Home from "../../Pages/Home/Home";
@@ -41,19 +34,19 @@ export const router = createBrowserRouter([
         path: '/services',
         element: <Servicess></Servicess>,
         loader: async () => {
-          return fetch('http://localhost:5000/services')
+          return fetch('https://pick-food-server.vercel.app/services')
         }
       },
       {
         path: '/services/:id',
         element: <ServiceDetail></ServiceDetail>,
-        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
        
       },
       {
         path: '/services/:id/commentForm',
         element: <PrivateRoute><CommentForm></CommentForm></PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`)
+        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
       },
       {
         path: '/login',
@@ -67,7 +60,7 @@ export const router = createBrowserRouter([
         path: '/addServices',
         element: <AddServices></AddServices>,
         loader: async () => {
-          return fetch('http://localhost:5000/services')
+          return fetch('https://pick-food-server.vercel.app/services')
         }
       },
       
@@ -78,7 +71,7 @@ export const router = createBrowserRouter([
       {
         path: '/reviews/:id/update',
         element: <Update></Update>,
-        loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`)
+        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/reviews/${params.id}`)
       },
       {
         path: '/blogs',

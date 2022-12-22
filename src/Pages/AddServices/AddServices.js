@@ -11,7 +11,7 @@ const AddServices = () => {
         console.log(recipes);
         
         
-        fetch('http://localhost:5000/services', {
+        fetch('https://pick-food-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -39,24 +39,25 @@ const AddServices = () => {
     }
    
     return (
-        <div>
+        <div className='my-20'>
             
-            <div className="hero-content">
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
-                <p className='text-center text-2xl text-primary font-semibold'>Please add a new service</p>
+            <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10">
+                <img src="https://media.istockphoto.com/id/483264639/photo/breakfast.jpg?s=612x612&w=0&k=20&c=BwDINTffvXp5RTfa3SYihVpecDyosxwN-M50JBqV8k8=" alt="" data-aos="fade-right" data-aos-duration="1000"/>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gray-300 py-10" data-aos="fade-left" data-aos-duration="800">
+                <p className='text-center text-2xl text-black font-semibold'>Please add a new service</p>
                     <form onSubmit={handleAddRecipes} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='name' placeholder="your name" className="input input-bordered input-primary" required/>
+                            <input onBlur={handleInputBlur} type="text" name='name' placeholder="your name" className="input input-bordered" required/>
                         </div>
                         <div className="form-control">
                         
             <label className="label">
-            Image
+            Image URL
             </label>
-            <input onBlur={handleInputBlur} name="img" type="text" placeholder="img URL"  className="input input-bordered input-primary"  required/>
+            <input onBlur={handleInputBlur} name="img" type="text" placeholder="img URL"  className="input input-bordered "  required/>
                 
                             
                         </div>
@@ -64,14 +65,14 @@ const AddServices = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='price' placeholder="price" className="input input-bordered input-primary" required/>
+                            <input onBlur={handleInputBlur} type="text" name='price' placeholder="price" className="input input-bordered" required/>
                             
                         </div>
                         <div className="form-control">
                         <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <input onBlur={handleInputBlur} type="text" name='description' placeholder="description" className="input input-bordered input-primary" required/>
+                            <input onBlur={handleInputBlur} type="text" name='description' placeholder="description" className="input input-bordered" required/>
                         
                             
                         </div>

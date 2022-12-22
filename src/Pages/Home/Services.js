@@ -6,16 +6,17 @@ const Services = () => {
 
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://pick-food-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
 
     return (
-        <div>
-            <div className='text-center mt-20'>
+        <div data-aos="fade-up"
+        data-aos-duration="1000">
+            <div className='text-center mt-32'>
                 <p className="text-2xl font-bold">Services</p>
-                <p className='mb-10'>here show our services you can select one easily</p>
+                <p className='mb-16'>here show our services you can select one easily</p>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center'>
                 {

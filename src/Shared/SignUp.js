@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 import useTitle from '../hook/useTitle';
 import DotLoader from "react-spinners/DotLoader";
 
 
 const SignUp = () => {
+    const [error, setError] = useState('');
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true)
@@ -21,6 +25,7 @@ const SignUp = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        setError('');
         form.reset();
         
         
@@ -28,24 +33,25 @@ const SignUp = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            
+            navigate(from, { replace: true })
         })
-        .catch(err => console.error(err));
+            .catch(error => {
+                console.error(error)
+            setError(error.message)
+            });
     }
 
     return (
-        <div className="hero w-full my-20">
+        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10 ">
+            <img className='cover' src="https://media.istockphoto.com/id/1348695978/photo/sweet-colorful-donuts-and-espresso-cup.jpg?s=612x612&w=0&k=20&c=xmyK2ZQ6ylt0qoT57vwy5orxLBDe7-8BtZvYwiB86YY=" alt="" data-aos="fade-right" data-aos-duration="800"/>
             {
                 loading ?
-                <DotLoader color={'#483bf6'} loading={loading}  size={100} 
+                <DotLoader color={'#F6BE00'} loading={loading}  size={100} 
                     />
                     :
                     <>
-                    <div className="hero-content">
-                <div className="text-center lg:text-left">
-                    <img className='w-3/4' src="" alt="" />
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-20">
+               
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100 py-10 mb-20" data-aos="fade-left" data-aos-duration="800">
                     <h1 className="text-5xl text-center font-bold">Sign Up</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
@@ -68,12 +74,13 @@ const SignUp = () => {
                             
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Sign Up" />
-                        </div>
+                            <input className="btn btn-warning" type="submit" value="Sign Up" />
+                                </div>
+                                <p className='text-red-500'>{error}</p>
                     </form>
-                    <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+                    <p className='text-center'>Already have an account? <Link className='text-blue-600 font-bold' to="/login">Login</Link> </p>
                 </div>
-            </div>
+           
                     </>
             }
             

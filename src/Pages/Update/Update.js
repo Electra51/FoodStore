@@ -17,7 +17,7 @@ const Update = () => {
         console.log(recipes);
 
 
-        fetch(`http://localhost:5000/reviews/${storedReview._id}`, {
+        fetch(`https://pick-food-server.vercel.app/reviews/${storedReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -46,25 +46,26 @@ const Update = () => {
     }
 
     return (
-        <div>
+        <div className="flex flex-col lg:flex-row justify-center items-center w-full gap-10">
+            <img src="https://media.istockphoto.com/id/153555214/photo/breakfast-with-eggs-bacon-sausage-biscuits-and-waffles.jpg?s=612x612&w=0&k=20&c=PRCf62gBy6zPUb5Ly1bVx2fnaeS54pbApJ7aILhBrxU=" alt="" />
 
-            <div className="hero-content">
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-10">
-                    <p className='text-center text-2xl text-primary font-semibold'>Please <span className='text-warning'> Update</span> Review For
+            
+                <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-gray-300 py-10 mb-20" data-aos="fade-left" data-aos-duration="800">
+                    <p className='text-center text-2xl text-black font-semibold'>Please <span className='text-warning'> Update</span> Review For
                         <br /> {storedReview.serviceName} item</p>
                     <form onSubmit={handleUpdateReview} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input onChange={handleInputChange} defaultValue={storedReview.customer} type="text" name='name' placeholder="your name" className="input input-bordered input-primary" required />
+                            <input onChange={handleInputChange} defaultValue={storedReview.customer} type="text" name='name' placeholder="your name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
 
                             <label className="label">
                                 Email
                             </label>
-                            <input onChange={handleInputChange} defaultValue={storedReview.email} name="email" type="email" placeholder="email" className="input input-bordered input-primary" required />
+                            <input onChange={handleInputChange} defaultValue={storedReview.email} name="email" type="email" placeholder="email" className="input input-bordered" required />
 
 
                         </div>
@@ -74,7 +75,7 @@ const Update = () => {
                                 <span className="label-text">Message</span>
                             </label>
                             <input onChange={handleInputChange} defaultValue={storedReview.message
-                            } type="text" name='message' placeholder="description" className="input input-bordered input-primary" required />
+                            } type="text" name='message' placeholder="description" className="input input-bordered" required />
 
 
                         </div>
@@ -85,7 +86,7 @@ const Update = () => {
                     </form>
 
                 </div>
-            </div>
+           
             <ToastContainer/>
         </div>
     );

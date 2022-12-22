@@ -6,7 +6,7 @@ const ReviewRow = ({ review, handleDelete }) => {
     const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://pick-food-server.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => setReviewService(data))
     }, [
@@ -18,9 +18,9 @@ const ReviewRow = ({ review, handleDelete }) => {
 
 
     return (
-        <tr>
+        <tr >
             <td>
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 "  data-aos="zoom-in-up" data-aos-duration="1500">
                     <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                             
