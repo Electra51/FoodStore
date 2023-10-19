@@ -8,7 +8,7 @@ FoodStore is a dynamic web application that allows users to explore and review a
 - Frontend: HTML, CSS, JavaScript, React Js, Tailwindcss
 - Backend: Node.js, Express.js
 - Database: MongoDB
-- Other Technologies: React toastify, React Form Hook
+- Other Technologies: React toastify, React Form Hook, React photo viewer
 - User Authentication: Firebase, JWT (JSON Web Tokens)
 - Tools: Git for version control, GitHub for repository hosting, Netlify for Deploying.
 
