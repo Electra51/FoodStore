@@ -1,0 +1,31 @@
+button {
+  transition: background 0.7s ease;
+}
+
+.arrow1 {
+  animation: slide1 1s ease-in-out infinite;
+  margin-left: 9px;
+}
+
+@keyframes slide1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 0);
+  }
+}
+
+/* .slick-list {
+  margin-top: 0px;
+}
+
+.slick-slider {
+  overflow-x: hidden;
+}
+
+.slide-img img {
+  width: 2117px !important;
+} */

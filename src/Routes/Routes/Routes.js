@@ -1,5 +1,3 @@
-
-
 import Main from "../../Layouts/Main";
 import Home from "../../Pages/Home/Home";
 import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
@@ -13,22 +11,23 @@ import AddServices from "../../Pages/AddServices/AddServices";
 import Update from "../../Pages/Update/Update";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
+import BlogsDetails from "../../Pages/Blogs/BlogsDetails";
 
 const { createBrowserRouter } = require("react-router-dom");
 
 export const router = createBrowserRouter([
-    {
-      path:'/',
+  {
+    path: '/',
     element: <Main></Main>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/home',
-        element:<Home></Home>
+        element: <Home></Home>
       },
       {
         path: '/',
-        element:<Home></Home>
+        element: <Home></Home>
       },
       {
         path: '/services',
@@ -40,21 +39,21 @@ export const router = createBrowserRouter([
       {
         path: '/services/:id',
         element: <ServiceDetail></ServiceDetail>,
-        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
-       
+        loader: ({ params }) => fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
+
       },
       {
         path: '/services/:id/commentForm',
         element: <PrivateRoute><CommentForm></CommentForm></PrivateRoute>,
-        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
+        loader: ({ params }) => fetch(`https://pick-food-server.vercel.app/services/${params.id}`)
       },
       {
         path: '/login',
-        element:<Login></Login>
+        element: <Login></Login>
       },
       {
         path: '/reviews',
-        element:<ReviewPage></ReviewPage>
+        element: <ReviewPage></ReviewPage>
       },
       {
         path: '/addServices',
@@ -63,21 +62,25 @@ export const router = createBrowserRouter([
           return fetch('https://pick-food-server.vercel.app/services')
         }
       },
-      
+
       {
         path: '/signup',
-        element:<SignUp></SignUp>
+        element: <SignUp></SignUp>
       },
       {
         path: '/reviews/:id/update',
         element: <Update></Update>,
-        loader: ({params})=> fetch(`https://pick-food-server.vercel.app/reviews/${params.id}`)
+        loader: ({ params }) => fetch(`https://pick-food-server.vercel.app/reviews/${params.id}`)
       },
       {
         path: '/blogs',
-        element:<Blogs></Blogs>
-        }
-      
-      ]
-    },
-  ]);
+        element: <Blogs></Blogs>
+      },
+      {
+        path: '/blogs/:id',
+        element: <BlogsDetails />
+      }
+
+    ]
+  },
+]);

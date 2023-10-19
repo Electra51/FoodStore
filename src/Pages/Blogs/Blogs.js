@@ -1,202 +1,112 @@
-import React from 'react';
-import img from '../../../src/assets/Images/2.png'
-import img1 from '../../../src/assets/Images/3.PNG'
-import img2 from '../../../src/assets/Images/4.PNG'
-import img3 from '../../../src/assets/Images/5.PNG'
-import img4 from '../../../src/assets/Images/6.PNG'
-import useTitle from '../../hook/useTitle';
+import React, { useState } from "react";
+import {
+  AiOutlineComment,
+  AiOutlineSearch,
+  AiOutlineShareAlt,
+} from "react-icons/ai";
+import { SlLike } from "react-icons/sl";
+import { Link } from "react-router-dom";
+import useTitle from "../../hook/useTitle";
+import blogsAllData from "./fakeBlog";
+
 const Blogs = () => {
-    useTitle('Blogs');
-    return (
-        <div >
-            <div>
 
-                <div className='text-center my-16 ' data-aos="zoom-in-up" data-aos-duration="1500">
-                    <img className='inline' src={img} alt="" width={300} />
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBlogs, setFilteredBlogs] = useState(blogsAllData);
 
-                </div>
-            </div>
-            <div className='grid grid-cols-1 lg:grid-cols-2 justify-items-center gap-6 mb-20'>
-                {/* question 01 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl my-16" data-aos="fade-up"
-     data-aos-duration="1000">
-                    <figure><img src={img1} alt="Album" /></figure>
-                    <div className="card-body flex justify-center items-start">
-                        <h2 className="card-title">What are the difference between SQL and NoSQL ?</h2>
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
 
-                        <div className="card-actions justify-end">
-                            {/* The button to open modal */}
-<label htmlFor="my-modal1" className="btn">View Answer</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal1" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box">
-    
-  <table className="table w-full">
-
-<thead>
-    <tr>
-        <th></th>
-        <th>SQL</th>
-        <th>NoSQL</th>
-
-    </tr>
-</thead>
-<tbody>
-
-    <tr>
-        <th>1</th>
-        <td>Relational database <br />
-            management system</td>
-        <td>Non-relational or distributed <br /> database system.</td>
-
-    </tr>
-
-    <tr>
-        <th>2</th>
-        <td>Vertically Scalable</td>
-        <td>Horizontally scalable</td>
-
-    </tr>
-
-    <tr>
-        <th>3</th>
-        <td>These databases are <br />
-            best suited for <br /> complex queries</td>
-        <td>They have dynamic schema</td>
-
-    </tr>
-</tbody>
-</table>
-    <div className="modal-action">
-      <label htmlFor="my-modal1" className="btn">Got it</label>
-    </div>
-  </div>
-</div>
-                        </div>
-                    </div>
-                </div>
-                {/* question 02 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl my-16" data-aos="fade-up"
-     data-aos-duration="1000">
-                    <figure><img src={img2} alt="Album" /></figure>
-                    <div className="card-body flex justify-center items-start">
-                        <h2 className="card-title">What is JWT, and how does it work?</h2>
-
-                        <div className="card-actions justify-end">
-                            {/* The button to open modal */}
-<label htmlFor="my-modal2" className="btn">View Answer</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal2" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box">
-    
-                                    <p className="py-4">JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object. It is compact, readable and digitally signed using a private key/ or a public key pair by the Identity Provider(IdP).
-                                    JWTs differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.
-
-A JWT is a string made up of three parts, separated by dots (.), and serialized using base64. In the most common serialization format, compact serialization, the JWT looks something like this: xxxxx.yyyyy.zzzzz.</p>
-    <div className="modal-action">
-      <label htmlFor="my-modal2" className="btn">Got it</label>
-    </div>
-  </div>
-</div>
-                        </div>
-                    </div>
-                </div>
-                {/* question 03 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl "  data-aos="fade-up"
-     data-aos-duration="1000">
-                    <figure><img src={img3} alt="Album" /></figure>
-                    <div className="card-body flex justify-center items-start">
-                        <h2 className="card-title">What is the difference between javascript and NodeJS?</h2>
-
-                        <div className="card-actions justify-end">
-                            {/* The button to open modal */}
-<label htmlFor="my-modal3" className="btn">View Answer</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal3" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box">
-    
-  <table className="table w-full">
-
-<thead>
-    <tr>
-        <th></th>
-        <th>Javascript</th>
-        <th>NodeJS</th>
-
-    </tr>
-</thead>
-<tbody>
-
-    <tr>
-        <th>1</th>
-        <td>Javascript is a <br /> programming language that <br /> is used for writing <br /> scripts on the website.</td>
-        <td>NodeJS is a Javascript <br /> runtime environment.</td>
-
-    </tr>
-
-    <tr>
-        <th>2</th>
-        <td>	Javascript can only be <br /> run in the browsers.</td>
-        <td>We can run Javascript outside <br /> the browser with the help of NodeJS.</td>
-
-    </tr>
-
-    <tr>
-        <th>3</th>
-        <td>Javascript is used <br /> in frontend development.</td>
-        <td>Nodejs is used in <br /> server-side development.</td>
-
-    </tr>
-</tbody>
-</table>
-    <div className="modal-action">
-      <label htmlFor="my-modal3" className="btn">Got it</label>
-    </div>
-  </div>
-</div>
-                        </div>
-                    </div>
-                </div>
-                {/* question 04 */}
-                <div className="card lg:card-side bg-base-100 shadow-xl"  data-aos="fade-up"
-     data-aos-duration="1000">
-                    <figure><img src={img4} alt="Album" /></figure>
-                    <div className="card-body flex justify-center items-start">
-                        <h2 className="card-title">How does NodeJS handle multiple requests at the same time?</h2>
-
-                        
-                        <div className="card-actions justify-end">
-                            {/* The button to open modal */}
-<label htmlFor="my-modal4" className="btn">View Answer</label>
-
-{/* Put this part before </body> tag */}
-<input type="checkbox" id="my-modal4" className="modal-toggle" />
-<div className="modal">
-  <div className="modal-box">
-    
-                                   <p>NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them.</p>
-    <div className="modal-action">
-      <label htmlFor="my-modal4" className="btn">Got it</label>
-    </div>
-  </div>
-</div>
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h1 className='text-3xl font-bold text-center my-20'>Thank you Everybody!</h1>
-        </div>
+    // Filter the blogs based on the search query
+    const filtered = blogsAllData.filter((blog) =>
+      blog.question.toLowerCase().includes(query)
     );
+    setFilteredBlogs(filtered);
+  };
+  useTitle("Blogs");
+
+  return (
+    <div>
+      {/* breadcrumbs and searchbar */}
+      <div className="service-bread text-sm breadcrumbs bg-base-300 h-24 lg:px-10 px-7 py-10 overflow-hidden flex justify-between items-center gap-5">
+        <ul>
+          <li className="opacity-60">
+            <Link to="/">Home</Link>
+          </li>
+          <li>Blogs</li>
+        </ul>
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search Blogs..."
+            value={searchQuery}
+            onChange={handleSearch}
+            className="input input-bordered w-full max-w-xs relative"
+          />
+          <AiOutlineSearch className="absolute right-3 top-2 text-2xl" />
+        </div>
+      </div>
+      {/* blog card */}
+      <div className="mx-8 grid lg:grid-cols-2 sm:grid-cols-1 md:grid-cols-1 gap-10 my-14">
+        {filteredBlogs?.map((blogData) => (
+          <div
+            key={blogData?.id}
+            className="lg:h-[200px] h-[350px] block w-full lg:flex gap-2" style={{ boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}
+          >
+            <div className="h-[200px] w-full lg:w-1/2">
+              <img src={blogData?.img} alt="" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-2 h-[200px] w-full lg:w-1/2">
+              <h2 className="pt-3 text-[17px] font-medium">
+                {blogData?.question}
+              </h2>
+              <p className="py-2 text-[14px] text-gray-500">
+                {blogData?.answer.length > 80 ? (
+                  <p className="text-[14px]">
+                    {blogData?.answer.slice(0, 80) + "..."}{" "}
+                    <Link
+                      to={`/blogs/${blogData?.id}`}
+                      className="text-[#EF8E33] cursor-pointer"
+                    >
+                      {" "}
+                      Read more
+                    </Link>
+                  </p>
+                ) : (
+                  <p className="text-[14px]">
+                    {blogData?.answer}{" "}
+                    <Link
+                      to={`/blogs/${blogData?.id}`}
+                      className="text-[#EF8E33] cursor-pointer"
+                    >
+                      {" "}
+                      Read more
+                    </Link>
+                  </p>
+                )}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* blog footer */}
+      <h3 className="text-2xl font-bold text-center mt-16 mb-10">
+        Thank you Everybody!
+      </h3>
+      <div className="flex justify-center items-center gap-8 text-5xl mb-10">
+        <div className="tooltip" data-tip="Like">
+          <SlLike className="border border-orange-500 text-white rounded-full p-3 bg-[#EF8E33] hover:bg-orange-500 hover:text-white" />
+        </div>
+        <div className="tooltip" data-tip="Share">
+          <AiOutlineShareAlt className="border border-orange-500 text-white rounded-full p-3 bg-[#EF8E33] hover:bg-orange-500 hover:text-white" />
+        </div>
+        <div className="tooltip" data-tip="comment">
+          <AiOutlineComment className="border border-orange-500 text-white rounded-full p-3 bg-[#EF8E33] hover:bg-orange-500 hover:text-white" />
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Blogs;
-
-
-

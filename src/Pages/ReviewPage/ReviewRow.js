@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import "./ReviewPage.css";
 
 const ReviewRow = ({ review, handleDelete }) => {
-    const {serviceName, message, price, _id, service,img} = review;
+    const { serviceName, message, price, _id, service, userimage, customer, email } = review;
     const [reviewService, setReviewService] = useState({})
 
     useEffect(() => {
@@ -12,40 +13,30 @@ const ReviewRow = ({ review, handleDelete }) => {
     }, [
         service])
 
-
-
-
-
-
     return (
-        <tr >
-            <td>
-                <div className="flex items-center space-x-3 "  data-aos="zoom-in-up" data-aos-duration="1500">
-                    <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                            
-                            <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />
-                            
 
-                        </div>
-                    </div>
-                    <div>
-                        <div className="font-bold">{serviceName}</div>
-                        <div className="text-sm opacity-50">{price}</div>
+
+
+        <div className='flex flex-col lg:flex-row items-start gap-2 mt-4'>
+            <div>
+                <div className="avatar">
+                    <div className="w-75 lg:w-32 rounded">
+                        <img src={reviewService.img} />
                     </div>
                 </div>
-            </td>
-            <td>
-                {message}
+                <div className="">{serviceName}</div>
+                <div className="text-sm text-[#ef8e33] mb-2">Price: ${price}</div>
+                <div className='flex items-center gap-2'>
+                    <Link to={`/reviews/${_id}/update`}><button className="px-5 bg-transparent text-[#EF8E33] hover:bg-[#EF8E33] border border-orange-500 hover:text-white rounded-none hover:border-none !py-0">Edit</button></Link>
+                    <button onClick={() => handleDelete(_id)} className="px-4 bg-[#EF8E33] border border-orange-500 text-white rounded-none hover:border-none hover:bg-orange-500">Delete</button>
+                </div>
+            </div>
+            <div>
+                <p className='break-all text-justify'>Review: {message}</p>
 
-            </td>
-            <td>
-                <Link to ={`/reviews/${_id}/update`}><button className="btn btn-sm btn-outline">Edit</button></Link>
-                </td>
-            <th>
-                <button onClick={() => handleDelete(_id)} className="btn btn-sm btn-warning">Delete</button>
-            </th>
-        </tr>
+            </div>
+        </div>
+
 
     );
 };

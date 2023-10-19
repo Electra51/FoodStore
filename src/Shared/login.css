@@ -1,0 +1,12 @@
+input {
+  border-radius: 0px !important;
+}
+textarea,
+.input:focus {
+  outline: none;
+  border-radius: 0px !important;
+}
+
+/* textarea {
+  height: 50px;
+} */

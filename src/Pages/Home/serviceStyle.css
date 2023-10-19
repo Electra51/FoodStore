@@ -1,0 +1,17 @@
+.new-class {
+  width: 20%;
+  margin: 0px auto;
+  border-top: 13px solid #f88e1a;
+}
+
+.new-class2 {
+  width: 32%;
+  /* margin: 0px auto; */
+  border-top: 13px solid #f88e1a;
+}
+
+.service-bread{
+  background-image: url(../../assets/Images/Group\ 562.png);
+      background-position: center;
+    background-size: cover;
+}

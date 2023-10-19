@@ -5,6 +5,7 @@ import useTitle from '../../hook/useTitle';
 
 const PrivateRoute = ({ children }) => {
     useTitle('PrivateRoute')
+
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     if (loading) {
@@ -15,7 +16,7 @@ const PrivateRoute = ({ children }) => {
 
     }
 
-    return <Navigate to='/login' state={{ from: location }} replace></Navigate>
+    return <Navigate to='/login' state={{ from: location.pathname }} replace></Navigate>
 };
 
 export default PrivateRoute;
