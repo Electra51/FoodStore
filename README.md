@@ -1,72 +1,81 @@
-# Getting Started with Create React App PickFoood project
 
-Live site link : https://pick-food-f91bb.web.app/
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FoodStore - Review Based Web Application
+
+FoodStore is a dynamic web application that allows users to explore and review a wide range of services, share their experiences.
 
 
-## Available Scripts
+## Technologies Used
+- Frontend: HTML, CSS, JavaScript, React Js, Tailwindcss
+- Backend: Node.js, Express.js
+- Database: MongoDB
+- Other Technologies: React toastify, React Form Hook
+- User Authentication: Firebase, JWT (JSON Web Tokens)
+- Tools: Git for version control, GitHub for repository hosting, Netlify for Deploying.
 
-In the project directory, you can run:
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Service Listing:** Show all services, rating, price and description.
+- **Add Service:** Add various services, each with its unique details.
+- **Review and Ratings:** Share your thoughts by leaving reviews and ratings for services.
+- **Comments:** Engage in discussions with fellow users through comments on reviews.
+- **View Reviews:** Explore the vast repository of reviews made by the community.
+- **Edit Reviews:** Update your own reviews to keep them relevant.
+- **Blogs:** Read insightful blogs on various topics related to the services.
+- **Give Ratings and Reviews for Blogs:** Share your opinions on blog content.
+- **Delete Reviews:** Maintain control over your own reviews and remove them if necessary.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Live Link Demo
 
-### `npm run build`
+https://6530e4b043164a0e3ee33654--fluffy-narwhal-97e439.netlify.app/
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Screenshots
+![Logo](https://i.ibb.co/PF0mhhm/logo.png)
+![App Screenshot](https://i.ibb.co/NY63D7F/Capture.png)
+![App Screenshot](https://i.ibb.co/Cs1rHKD/4.png)
+![App Screenshot](https://i.ibb.co/3my3zTC/2.png)
+![App Screenshot](https://i.ibb.co/hg2PLZN/3.png)
+## Color Reference
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Body Color | ![#FFFFFF](https://via.placeholder.com/10/0a192f?text=+) #FFFFFF |
+| Theme Color | ![#EF9033](https://via.placeholder.com/10/f8f8f8?text=+) #EF9033 |
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Run Locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Clone the project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  git clone https://link-to-project
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Go to the project directory
 
-## Learn More
+```bash
+  cd my-project
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm install
+```
 
-### Code Splitting
+Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm start
+```
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://nextjs-my-portfolio-electra51.vercel.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/safayet-nur/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/nur_safaye51)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
