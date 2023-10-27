@@ -34,7 +34,6 @@ https://6530e4b043164a0e3ee33654--fluffy-narwhal-97e439.netlify.app/
 
 ## Screenshots
 ![Logo](https://i.ibb.co/PF0mhhm/logo.png)
-![App Screenshot](https://i.ibb.co/NY63D7F/Capture.png)
 ![App Screenshot](https://i.ibb.co/Cs1rHKD/4.png)
 ![App Screenshot](https://i.ibb.co/3my3zTC/2.png)
 ![App Screenshot](https://i.ibb.co/hg2PLZN/3.png)
